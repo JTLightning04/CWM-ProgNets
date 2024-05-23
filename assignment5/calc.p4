@@ -166,27 +166,27 @@ control MyIngress(inout headers hdr,
 
     action operation_add() {
         /* TODO call send_back with operand_a + operand_b */
-        send_back(hdr.p4calc_t.operand_a + hdr.p4calc_t.operand_b);
+        send_back(hdr.p4calc.operand_a + hdr.p4calc.operand_b);
     }
 
     action operation_sub() {
         /* TODO call send_back with operand_a - operand_b */
-        send_back(hdr.p4calc_t.operand_a - hdr.p4calc_t.operand_b);
+        send_back(hdr.p4calc.operand_a - hdr.p4calc.operand_b);
     }
 
     action operation_and() {
         /* TODO call send_back with operand_a & operand_b */
-        send_back(hdr.p4calc_t.operand_a & hdr.p4calc_t.operand_b);
+        send_back(hdr.p4calc.operand_a & hdr.p4calc.operand_b);
     }
 
     action operation_or() {
         /* TODO call send_back with operand_a | operand_b */
-        send_back(hdr.p4calc_t.operand_a | hdr.p4calc_t.operand_b);
+        send_back(hdr.p4calc.operand_a | hdr.p4calc.operand_b);
     }
 
     action operation_xor() {
         /* TODO call send_back with operand_a ^ operand_b */
-        send_back(hdr.p4calc_t.operand_a ^ hdr.p4calc_t.operand_b);
+        send_back(hdr.p4calc.operand_a ^ hdr.p4calc.operand_b);
     }
 
     action operation_drop() {
