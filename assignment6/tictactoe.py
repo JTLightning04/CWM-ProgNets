@@ -71,12 +71,20 @@ def get_if():
     #print(iface)
     return iface
 
+def display_board(a,b,c,d,e,f,g,h,i):
+    print('board:')
+    print(str(a)+' '+str(b)+' '+str(c))
+    print(str(d)+' '+str(e)+' '+str(f))
+    print(str(g)+' '+str(h)+' '+str(i))
+
 def main():
 
     p = make_seq(num_parser, make_seq(op_parser,num_parser))
     s = ''
     #iface = get_if()
     iface = "enx0c37965f8a16"
+    
+    #initialise the game
     place_a = 0
     place_b = 0
     place_c = 0
@@ -87,8 +95,16 @@ def main():
     place_h = 0
     place_i = 0
     valid = 0
+    turn = 0
+    
+    #explanation of how to play
+    print('On your turn type the position you want to play corresponding to these numbers:')
+    print('1 2 3')
+    print('4 5 6')
+    print('7 8 9')
+    print('your moves will be represented by 1 and the computer moves by 2')
     while True:
-        s = input('board\n'+str(place_a)+' '+str(place_b)+' '+str(place_c)+'\n'+str(place_d)+' '+str(place_e)+' '+str(place_f)+'\n'+str(place_g)+' '+str(place_h)+' '+str(place_i)+'\n > ')
+        s = input('board:\n'+str(place_a)+' '+str(place_b)+' '+str(place_c)+'\n'+str(place_d)+' '+str(place_e)+' '+str(place_f)+'\n'+str(place_g)+' '+str(place_h)+' '+str(place_i)+'\n > ')
         if s == "quit":
             break
         print(s)
@@ -168,7 +184,6 @@ def main():
                 if resp:
                     p4calc=resp[P4calc]
                     if p4calc:
-                        print(p4calc.result)
                         if str(p4calc.result) == '1':
                             place_a = 2
                         elif str(p4calc.result) == '2':
@@ -192,6 +207,19 @@ def main():
                             break
                         elif str(p4calc.result) == '11':
                             print('you lose')
+                            place_a = p4calc.operand_a
+                            place_b = p4calc.operand_b
+                            place_c = p4calc.operand_c
+                            place_d = p4calc.operand_d
+                            place_e = p4calc.operand_e
+                            place_f = p4calc.operand_f
+                            place_g = p4calc.operand_g
+                            place_h = p4calc.operand_h
+                            place_i = p4calc.operand_i
+                            break
+                        elif str(p4calc.result) == '12':
+                            print('draw')
+                            break
                         
                     else:
                         print("cannot find P4calc header in the packet")
@@ -201,8 +229,8 @@ def main():
                 print(error)
         else:
             print("invalid move")
+    display_board(place_a,place_b,place_c,place_d,place_e,place_f,place_g,place_h,place_i)
 
 if __name__ == '__main__':
     main()
-
 
