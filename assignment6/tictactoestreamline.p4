@@ -242,36 +242,142 @@ control MyIngress(inout headers hdr,
         send_back(11);
         }
         
+        /*Check if player 1 can win in one move and blocks*/
+        else if (hdr.p4calc.operand_a == 0 && hdr.p4calc.operand_b == 1 && hdr.p4calc.operand_c == 1) {
+        hdr.p4calc.operand_a = 2;
+        send_back(1);
+        }
+        else if (hdr.p4calc.operand_a == 1 && hdr.p4calc.operand_b == 0 && hdr.p4calc.operand_c == 1) {
+        hdr.p4calc.operand_b = 2;
+        send_back(2);
+        }
+        else if (hdr.p4calc.operand_a == 1 && hdr.p4calc.operand_b == 1 && hdr.p4calc.operand_c == 0) {
+        hdr.p4calc.operand_c = 2;
+        send_back(3);
+        }
+        else if (hdr.p4calc.operand_d == 0 && hdr.p4calc.operand_e ==1 && hdr.p4calc.operand_f == 1) {
+        hdr.p4calc.operand_d = 2;
+        send_back(4);
+        }
+        else if (hdr.p4calc.operand_d == 1 && hdr.p4calc.operand_e ==0 && hdr.p4calc.operand_f == 1) {
+        hdr.p4calc.operand_e = 2;
+        send_back(5);
+        }
+        else if (hdr.p4calc.operand_d == 1 && hdr.p4calc.operand_e ==1 && hdr.p4calc.operand_f == 0) {
+        hdr.p4calc.operand_f = 2;
+        send_back(6);
+        }
+        else if (hdr.p4calc.operand_g == 0 && hdr.p4calc.operand_h ==1 && hdr.p4calc.operand_i == 1) {
+        hdr.p4calc.operand_g = 2;
+        send_back(7);
+        }
+        else if (hdr.p4calc.operand_g == 1 && hdr.p4calc.operand_h ==0 && hdr.p4calc.operand_i == 1) {
+        hdr.p4calc.operand_h = 2;
+        send_back(8);
+        }
+        else if (hdr.p4calc.operand_g == 1 && hdr.p4calc.operand_h ==1 && hdr.p4calc.operand_i == 0) {
+        hdr.p4calc.operand_i = 2;
+        send_back(9);
+        }
+        else if (hdr.p4calc.operand_a == 0 && hdr.p4calc.operand_d ==1 && hdr.p4calc.operand_g == 1) {
+        hdr.p4calc.operand_a = 2;
+        send_back(1);
+        }
+        else if (hdr.p4calc.operand_a == 1 && hdr.p4calc.operand_d ==0 && hdr.p4calc.operand_g == 1) {
+        hdr.p4calc.operand_d = 2;
+        send_back(4);
+        }
+        else if (hdr.p4calc.operand_a == 1 && hdr.p4calc.operand_d ==1 && hdr.p4calc.operand_g == 0) {
+        hdr.p4calc.operand_g = 2;
+        send_back(7);
+        }
+        else if (hdr.p4calc.operand_b == 0 && hdr.p4calc.operand_e ==1 && hdr.p4calc.operand_h == 1) {
+        hdr.p4calc.operand_b = 2;
+        send_back(2);
+        }
+        else if (hdr.p4calc.operand_b == 1 && hdr.p4calc.operand_e ==0 && hdr.p4calc.operand_h == 1) {
+        hdr.p4calc.operand_e = 2;
+        send_back(5);
+        }
+        else if (hdr.p4calc.operand_b == 1 && hdr.p4calc.operand_e ==1 && hdr.p4calc.operand_h == 0) {
+        hdr.p4calc.operand_h = 2;
+        send_back(8);
+        }
+        else if (hdr.p4calc.operand_c == 0 && hdr.p4calc.operand_f ==1 && hdr.p4calc.operand_i == 1) {
+        hdr.p4calc.operand_c = 2;
+        send_back(3);
+        }
+        else if (hdr.p4calc.operand_c == 1 && hdr.p4calc.operand_f ==0 && hdr.p4calc.operand_i == 1) {
+        hdr.p4calc.operand_f = 2;
+        send_back(6);
+        }
+        else if (hdr.p4calc.operand_c == 1 && hdr.p4calc.operand_f ==1 && hdr.p4calc.operand_i == 0) {
+        hdr.p4calc.operand_i = 2;
+        send_back(9);
+        }
+        else if (hdr.p4calc.operand_a == 0 && hdr.p4calc.operand_e ==1 && hdr.p4calc.operand_i == 1) {
+        hdr.p4calc.operand_a = 2;
+        send_back(1);
+        }
+        else if (hdr.p4calc.operand_a == 1 && hdr.p4calc.operand_e ==0 && hdr.p4calc.operand_i == 1) {
+        hdr.p4calc.operand_e = 2;
+        send_back(5);
+        }
+        else if (hdr.p4calc.operand_a == 1 && hdr.p4calc.operand_e ==1 && hdr.p4calc.operand_i == 0) {
+        hdr.p4calc.operand_i = 2;
+        send_back(9);
+        }
+        else if (hdr.p4calc.operand_c == 0 && hdr.p4calc.operand_e ==1 && hdr.p4calc.operand_g == 1) {
+        hdr.p4calc.operand_c = 2;
+        send_back(3);
+        }
+        else if (hdr.p4calc.operand_c == 1 && hdr.p4calc.operand_e ==0 && hdr.p4calc.operand_g == 1) {
+        hdr.p4calc.operand_e = 2;
+        send_back(5);
+        }
+        else if (hdr.p4calc.operand_c == 1 && hdr.p4calc.operand_e ==1 && hdr.p4calc.operand_g == 0) {
+        hdr.p4calc.operand_g = 2;
+        send_back(7);
+        }
         
         /*Otherwise make random player 2 move*/
         /*First choice is middle*/
         else if (hdr.p4calc.operand_e == 0) {
+        hdr.p4calc.operand_e = 2;
         send_back(5);
         }
         /*next choice is corners*/
         else if (hdr.p4calc.operand_a == 0) {
+        hdr.p4calc.operand_a = 2;
         send_back(1);
         }
         else if (hdr.p4calc.operand_c == 0) {
+        hdr.p4calc.operand_c = 2;
         send_back(3);
         }
         else if (hdr.p4calc.operand_g == 0) {
+        hdr.p4calc.operand_g = 2;
         send_back(7);
         }
         else if (hdr.p4calc.operand_i == 0) {
+        hdr.p4calc.operand_i = 2;
         send_back(9);
         }
         /*last choice is regular edge*/
         else if (hdr.p4calc.operand_b == 0) {
+        hdr.p4calc.operand_b = 2;
         send_back(2);
         }
         else if (hdr.p4calc.operand_d == 0) {
+        hdr.p4calc.operand_d = 2;
         send_back(4);
         }
         else if (hdr.p4calc.operand_f == 0) {
+        hdr.p4calc.operand_f = 2;
         send_back(6);
         }
         else if (hdr.p4calc.operand_h == 0) {
+        hdr.p4calc.operand_h = 2;
         send_back(8);
         }
         /*if no available moves then it sends back a draw*/
